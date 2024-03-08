@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surf Forecast</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .forecast-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Surf Forecast</h1>
+    <div id="forecast-container"></div>
+
+    <script>
+        // Function to render surf forecast data on the front end
+        const renderForecast = (forecastData) => {
+            const forecastContainer = document.getElementById('forecast-container');
+            
+            forecastData.forEach((forecast) => {
+                const forecastItem = document.createElement('div');
+                forecastItem.classList.add('forecast-item');
+
+                forecastItem.innerHTML = `
+                    <p>Time: ${forecast.time}</p>
+                    <p>Swell Height: ${forecast.swellHeight.value} ${forecast.swellHeight.unit}</p>
+                    <p>Swell Period: ${forecast.swellPeriod.value} ${forecast.swellPeriod.unit}</p>
+                    <p>Swell Direction: ${forecast.swellDirection.value} ${forecast.swellDirection.unit}</p>
+                `;
+
+                forecastContainer.appendChild(forecastItem);
+            });
+        };
+
+        const sampleForecast = [
+            {
+                time: '2024-03-05T01:00:00+00:00',
+                swellHeight: { value: 3.5, unit: 'm' },
+                swellPeriod: { value: 12, unit: 's' },
+                swellDirection: { value: 180, unit: 'degrees' }
+            },
+        ];
+
+        // Uncomment the line below and replace sampleForecast with your actual forecast data
+         renderForecast(sampleForecast);
+    </script>
+</body>
+</html>
