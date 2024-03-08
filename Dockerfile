@@ -13,5 +13,8 @@ RUN npm install
 # Copy application code
 COPY src/ ./
 
+# Expose webserver
+EXPOSE 80
+
 # Define the command to run your app using CMD which defines your runtime
-CMD ["npm", "run"]
+CMD ["node", "app.js"]
