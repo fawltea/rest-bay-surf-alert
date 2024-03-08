@@ -1,6 +1,8 @@
 const axios = require('axios');
 
-const apiKey = '';
+require('dotenv').config();
+
+const apiKey = process.env.API_KEY;
 const apiUrl = 'https://api.stormglass.io/v2/weather/point';
 
 const getSurfForecast = async (latitude, longitude) => {
